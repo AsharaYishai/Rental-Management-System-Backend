@@ -25,4 +25,11 @@ public class CustomerController {
         return service.getAllCustomer();
     }
 
+    @DeleteMapping("/delete-customer/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public String deleteCustomer(@PathVariable Long id){
+        service.deleteCustomerById(id);
+        return "Deleted";
+    }
+
 }
