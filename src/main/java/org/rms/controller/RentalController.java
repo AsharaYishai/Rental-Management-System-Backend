@@ -32,4 +32,9 @@ public class RentalController {
         service.deleteRentalrById(id);
         return "Deleted";
     }
+
+    @PutMapping("/update-rental")
+    public void updateRental(@RequestBody Rental rental){
+        service.updateRental(rental);
+    }
 }

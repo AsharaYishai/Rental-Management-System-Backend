@@ -3,7 +3,6 @@ package org.rms.service.impl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.rms.dto.Rental;
-import org.rms.entity.CustomerEntity;
 import org.rms.entity.RentalEntity;
 import org.rms.repository.RentalRepository;
 import org.rms.service.RentalService;
@@ -35,6 +34,13 @@ public class RentalServiceImpl implements RentalService {
     public void deleteRentalrById(Long id) {
         if(repository.existsById(id)){
             repository.deleteById(id);
+        }
+    }
+
+    @Override
+    public void updateRental(Rental rental) {
+        if(repository.findById(rental.getRentalId()).isPresent()){
+            repository.save(new  ObjectMapper().convertValue(rental, RentalEntity.class));
         }
     }
 }
