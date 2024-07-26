@@ -1,10 +1,13 @@
 package org.rms.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.rms.dto.Customer;
 import org.rms.dto.Rental;
 import org.rms.service.RentalService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/rental-controller")
@@ -16,5 +19,10 @@ public class RentalController {
     @ResponseStatus(HttpStatus.CREATED)
     public void addRental(@RequestBody Rental rental){
         service.addRental(rental);
+    }
+
+    @GetMapping("/get-all-rental")
+    public List<Rental> getAllRental(){
+        return service.getAllRental();
     }
 }
