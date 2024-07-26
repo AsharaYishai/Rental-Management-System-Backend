@@ -8,6 +8,9 @@ import org.rms.repository.CustomerRepository;
 import org.rms.service.CustomerService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class CustomerServiceImpl implements CustomerService {
@@ -15,5 +18,15 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void addCustomer(Customer customer) {
         repository.save(new ObjectMapper().convertValue(customer, CustomerEntity.class));
+    }
+
+    @Override
+    public List<Customer> getAllCustomer() {
+        List<Customer> customerList = new ArrayList<>();
+        List<CustomerEntity> allCustomerEntityList = repository.findAll();
+        allCustomerEntityList.forEach(entity->{
+            customerList.add(new ObjectMapper().convertValue(entity,Customer.class));
+        });
+        return customerList;
     }
 }
