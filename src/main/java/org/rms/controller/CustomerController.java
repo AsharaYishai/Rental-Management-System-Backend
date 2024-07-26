@@ -32,4 +32,9 @@ public class CustomerController {
         return "Deleted";
     }
 
+    @PutMapping("/update-customer")
+    public void updateCustomer(@RequestBody Customer customer){
+        service.updateCustomer(customer);
+    }
+
 }
