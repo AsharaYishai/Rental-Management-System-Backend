@@ -38,5 +38,12 @@ public class HardwareItemServiceImpl implements HardwareItemService {
         }
     }
 
+    @Override
+    public void updateitem(HardwareItem hardwareItem) {
+        if(repository.findById(hardwareItem.getItemId()).isPresent()){
+            repository.save(new ObjectMapper().convertValue(hardwareItem, HardwareItemEntity.class));
+        }
+    }
+
 
 }

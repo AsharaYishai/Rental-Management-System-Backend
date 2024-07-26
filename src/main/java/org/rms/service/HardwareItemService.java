@@ -14,4 +14,6 @@ public interface HardwareItemService {
 
 
     void deleteItemById(Long id);
+
+    void updateitem(HardwareItem hardwareItem);
 }

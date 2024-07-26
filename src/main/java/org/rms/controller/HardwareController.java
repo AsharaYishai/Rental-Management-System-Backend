@@ -32,4 +32,9 @@ public class HardwareController {
         return "Deleted";
     }
 
+    @PutMapping("/update-item")
+    public void updateItem(@RequestBody HardwareItem hardwareItem){
+        service.updateitem(hardwareItem);
+    }
+
 }
