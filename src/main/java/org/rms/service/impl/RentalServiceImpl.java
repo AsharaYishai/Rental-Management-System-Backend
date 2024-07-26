@@ -3,6 +3,7 @@ package org.rms.service.impl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.rms.dto.Rental;
+import org.rms.entity.CustomerEntity;
 import org.rms.entity.RentalEntity;
 import org.rms.repository.RentalRepository;
 import org.rms.service.RentalService;

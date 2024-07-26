@@ -1,5 +1,6 @@
 package org.rms.entity;
 
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,8 +10,8 @@ import lombok.ToString;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Entity
+@ToString
 @Table(name = "rental")
 public class RentalEntity {
 
