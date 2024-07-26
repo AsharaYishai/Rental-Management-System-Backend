@@ -21,8 +21,8 @@ public class HardwareItemEntity {
     private Long itemId;
     private String name;
     private String availability;
-    private Date finePerDay;
-    private Date rentalPerDay;
+    private String finePerDay;
+    private String rentalPerDay;
 
 }
 
