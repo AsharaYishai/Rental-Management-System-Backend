@@ -30,4 +30,11 @@ public class RentalServiceImpl implements RentalService {
         });
         return rentalList;
     }
+
+    @Override
+    public void deleteRentalrById(Long id) {
+        if(repository.existsById(id)){
+            repository.deleteById(id);
+        }
+    }
 }

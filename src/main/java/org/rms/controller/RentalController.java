@@ -25,4 +25,11 @@ public class RentalController {
     public List<Rental> getAllRental(){
         return service.getAllRental();
     }
+
+    @DeleteMapping("/delete-rental/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public String deleteRental(@PathVariable Long id){
+        service.deleteRentalrById(id);
+        return "Deleted";
+    }
 }
