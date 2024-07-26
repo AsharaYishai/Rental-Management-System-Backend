@@ -6,6 +6,8 @@ import org.rms.service.HardwareItemService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/item-controller")
 @RequiredArgsConstructor
@@ -17,4 +19,10 @@ public class HardwareController {
     public void addHardwareItem(@RequestBody HardwareItem hardwareItem){
         service.addHardwareItem(hardwareItem);
     }
+
+    @GetMapping("/get-all-item")
+    public List<HardwareItem> getAllItem(){
+        return service.getAllHardwareItem();
+    }
+
 }

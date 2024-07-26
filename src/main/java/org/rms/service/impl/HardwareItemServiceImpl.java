@@ -8,6 +8,9 @@ import org.rms.repository.HardwareItemRepository;
 import org.rms.service.HardwareItemService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class HardwareItemServiceImpl implements HardwareItemService {
@@ -15,5 +18,16 @@ public class HardwareItemServiceImpl implements HardwareItemService {
     @Override
     public void addHardwareItem(HardwareItem hardwareItem) {
         repository.save(new ObjectMapper().convertValue(hardwareItem, HardwareItemEntity.class));
+    }
+
+
+    @Override
+    public List<HardwareItem> getAllHardwareItem() {
+        List<HardwareItem> hardwareItemList = new ArrayList<>();
+        List<HardwareItemEntity> hardwareItemEntityList = repository.findAll();
+        hardwareItemEntityList.forEach(entity->{
+            hardwareItemList.add(new ObjectMapper().convertValue(entity, HardwareItem.class));
+        });
+        return hardwareItemList;
     }
 }
