@@ -25,4 +25,11 @@ public class HardwareController {
         return service.getAllHardwareItem();
     }
 
+    @DeleteMapping("/delete-item/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public String deleteItem(@PathVariable Long id){
+        service.deleteItemById(id);
+        return "Deleted";
+    }
+
 }

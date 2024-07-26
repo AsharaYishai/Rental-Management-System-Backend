@@ -30,4 +30,13 @@ public class HardwareItemServiceImpl implements HardwareItemService {
         });
         return hardwareItemList;
     }
+
+    @Override
+    public void deleteItemById(Long id) {
+        if(repository.existsById(id)){
+            repository.deleteById(id);
+        }
+    }
+
+
 }

@@ -10,4 +10,8 @@ public interface HardwareItemService {
 
 
     List<HardwareItem> getAllHardwareItem();
+
+
+
+    void deleteItemById(Long id);
 }
